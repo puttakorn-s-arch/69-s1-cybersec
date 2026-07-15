@@ -1,6 +1,6 @@
 # Cyber Security
 
-## My Information 555555
+## My Information 
 - Puttakorn Somkana
 - Student ID 0568604050xx-x
 ## My Expectations for this Course
