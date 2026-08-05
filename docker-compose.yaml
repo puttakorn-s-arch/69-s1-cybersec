@@ -21,3 +21,9 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: puttakorn-s@rmutp.ac.th
       PGADMIN_DEFAULT_PASSWORD: Aa0988305523
+    volumes:
+      - data-pgadmin:/var/lib/pgadmin
+
+  volumes:
+    data-postgres:
+    data-pgadmin:
