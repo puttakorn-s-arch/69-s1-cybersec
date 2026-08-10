@@ -23,7 +23,7 @@ services:
       PGADMIN_DEFAULT_PASSWORD: Aa0988305523
     volumes:
       - data-pgadmin:/var/lib/pgadmin
-  
+
   app:
     image: prawee/strapi
     container_name: 69-s1-app
@@ -36,6 +36,6 @@ services:
       DATABASE_NAME: puttakorn
       DATABASE_USERNAME: puttakorn
       DATABASE_PASSWORD: Aa0988305523
-  
-  volumes:
-    data-pgadmin:
+
+volumes:
+  data-pgadmin:
