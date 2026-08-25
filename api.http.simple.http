@@ -1,0 +1,35 @@
+# API
+
+### Login
+POST http://localhost:9091/admin/login
+Content-Type: application/json
+
+{
+    "email": "puttakorn-s@rmutp.ac.th",
+    "password": "Aa0988305523",
+    "rememberMe": false
+}
+
+### Forgot
+POST http://localhost:9091/admin/forgot-password
+Content-Type: application/json
+
+{
+    "email": "puttakorn-s@rmutp.ac.th"
+}
+
+### Profile
+GET http://localhost:9091/admin/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzg3NjQ1MDIxLCJleHAiOjE3OTAyMzcwMjF9.OYIMAVV3TQLGrsXzHxWuMabPFrWo0cPS_rmRpk1Qx8Q
+
+### Register / signup
+GET http://localhost:9091/admin/signup
+Content-Type: application/json
+
+{
+    "email": "puttakorn-s@rmutp.ac.th",
+    "password": "Aa0988305523",
+    "firstName": "puttakorn",
+    "lastName": "Somkana"
+}
+

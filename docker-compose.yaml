@@ -9,7 +9,7 @@ services:
       - POSTGRES_USER=puttakorn
       - POSTGRES_DB=puttakorn
     volumes:
-      - .data:/var/lib/postgresql/data
+      - ./data:/var/lib/postgresql/data
 
   admin:
     image: dpage/pgadmin4
@@ -22,7 +22,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: puttakorn-s@rmutp.ac.th
       PGADMIN_DEFAULT_PASSWORD: Aa0988305523
     volumes:
-      - data-pgadmin:/var/lib/pgadmin
+      - ./data-pgadmin:/var/lib/pgadmin
 
 volumes:
   data-postgres:
