@@ -3,11 +3,11 @@ services:
     image: postgres:16-alpine
     container_name: 69-s1-db
     ports:
-      - 54327:5432
+      - ${POSTGRES_PORT}:5432
     environment:
-      - POSTGRES_PASSWORD=Aa0988305523
-      - POSTGRES_USER=puttakorn
-      - POSTGRES_DB=puttakorn
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_DB}
     volumes:
       - ./data:/var/lib/postgresql/data
 
@@ -17,13 +17,23 @@ services:
     depends_on:
       - db
     ports:
-      - "8081:80"
+      - ${PGADMIN_DEFAULT_PORT}:80
     environment:
-      PGADMIN_DEFAULT_EMAIL: puttakorn-s@rmutp.ac.th
-      PGADMIN_DEFAULT_PASSWORD: Aa0988305523
-    volumes:
-      - ./data-pgadmin:/var/lib/pgadmin
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+
+  app:
+    image: prawee/strapi
+    container_name: 69-s1-app
+    ports:
+      - ${APP_PORT}:1337
+    environment:
+      - DATABASE_CLIENT=${DATABASE_CLIENT}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - DATABASE_USERNAME=${DATABASE_USERNAME}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
 
 volumes:
-  data-postgres:
   data-pgadmin:
