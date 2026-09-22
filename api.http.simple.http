@@ -7,9 +7,9 @@ POST http://localhost:9091/admin/login
 Content-Type: application/json
 
 {
-    "email": "your-email",
-    "password": "your-password",
-    "rememberMe": false
+    "email": "{{$dotenv ADMIN_LOGIN_EMAIL}}",
+    "password": "{{$dotenv ADMIN_LOGIN_PASSWORD}}",
+    "rememberMe": {{$dotenv ADMIN_REMEMBER_ME}}
 }
 
 ### 1.2 Register / Signup
@@ -17,10 +17,10 @@ POST http://localhost:9091/admin/register-admin
 Content-Type: application/json
 
 {
-    "email": "your-email",
-    "password": "your-password",
-    "firstname": "your-firstname",
-    "lastname": "your-lastname"
+    "email": "{{$dotenv ADMIN_REGISTER_EMAIL}}",
+    "password": "{{$dotenv ADMIN_REGISTER_PASSWORD}}",
+    "firstname": "{{$dotenv ADMIN_REGISTER_FIRSTNAME}}",
+    "lastname": "{{$dotenv ADMIN_REGISTER_LASTNAME}}"
 }
 
 ### 1.3 Forgot
@@ -28,7 +28,7 @@ POST http://localhost:9091/admin/forgot-password
 Content-Type: application/json
 
 {
-    "email": "your-email"
+    "email": "{{$dotenv ADMIN_FORGOT_EMAIL}}"
 }
 
 ### 1.3.1 Reset Password
@@ -36,13 +36,13 @@ POST http://localhost:9091/admin/reset-password
 Content-Type: application/json
 
 {
-    "resetPasswordToken": "your-reset-token",
-    "password": "your-new-password"
+    "resetPasswordToken": "{{$dotenv ADMIN_RESET_PASSWORD_TOKEN}}",
+    "password": "{{$dotenv ADMIN_RESET_PASSWORD}}"
 }
 
 ### 1.4 Profile
 GET http://localhost:9091/admin/users/me
-Authorization: Bearer <your-token>
+Authorization: Bearer {{$dotenv ADMIN_PROFILE_TOKEN}}
 
 ## 2. User
 
@@ -51,8 +51,8 @@ POST http://localhost:9091/api/auth/local
 Content-Type: application/json
 
 {
-    "identifier": "your-email",
-    "password": "your-password"
+    "identifier": "{{$dotenv USER_LOGIN_IDENTIFIER}}",
+    "password": "{{$dotenv USER_LOGIN_PASSWORD}}"
 }
 
 ### 2.2 Register / Signup
@@ -60,18 +60,17 @@ POST http://localhost:9091/api/auth/local/register
 Content-Type: application/json
 
 {
-    "username": "your-username",
-    "email": "your-email",
-    "password": "your-password"
+    "username": "{{$dotenv USER_REGISTER_USERNAME}}",
+    "email": "{{$dotenv USER_REGISTER_EMAIL}}",
+    "password": "{{$dotenv USER_REGISTER_PASSWORD}}"
 }
 
 
 ### 2.3 Forgot
 POST http://localhost:9091/api/auth/forgot-password
 Content-Type: application/json
-
 {
-    "email": "your-email"
+    "email": "{{$dotenv USER_FORGOT_EMAIL}}"
 }
 
 ### 2.3.1 Reset Password
@@ -79,11 +78,11 @@ POST http://localhost:9091/api/auth/reset-password
 Content-Type: application/json
 
 {
-    "code": "your-reset-code",
-    "password": "your-new-password",
-    "passwordConfirmation": "your-new-password"
+    "code": "{{$dotenv USER_RESET_PASSWORD_CODE}}",
+    "password": "{{$dotenv USER_RESET_PASSWORD}}",
+    "passwordConfirmation": "{{$dotenv USER_RESET_PASSWORD_CONFIRMATION}}"
 }
 
 ### 2.4 Profile
 GET http://localhost:9091/api/users/me
-Authorization: Bearer <your-token>
+Authorization: Bearer {{$dotenv USER_PROFILE_TOKEN}}
